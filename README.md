@@ -16,6 +16,7 @@ npm install defaulty --save
 ```
 
 ## Example
+
 ```javascript
 const defaulty = require('defaulty');
 
