@@ -1,6 +1,6 @@
 {
   "name": "defaulty",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Copies missing properties to the target object.",
   "main": "index.js",
   "scripts": {
