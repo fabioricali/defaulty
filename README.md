@@ -28,6 +28,16 @@ let result = defaulty(targetObj, defaultObj);
 console.log(result); //=> {a: 4, b: 5, c: 3, d: {a: 1, b: 2}};
 ```
 
+### Exclude default properties
+```javascript
+let defaultObj = {a: 1, b: 2, c: 3, d: {a: 5, b: 2}, x: 1, y: 2};
+let targetObj = {a: 4, b: 5, d: {a: 1}};
+
+let result = defaulty(targetObj, defaultObj, ['x', 'y']);
+
+console.log(result); //=> {a: 4, b: 5, c: 3, d: {a: 1, b: 2}};
+```
+
 ## Changelog
 You can view the changelog <a target="_blank" href="https://github.com/fabioricali/defaulty/blob/master/CHANGELOG.md">here</a>
 

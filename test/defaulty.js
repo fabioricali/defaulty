@@ -9,6 +9,13 @@ describe('defaulty', function () {
             console.log(result);
             be.err.equal(result, {a: 4, b: 5, c: 3});
         });
+
+        it('exclude properties, should be return true', () => {
+            let result = defaulty({a: 4, b: 5}, {a: 1, b: 2, c: 3}, ['c']);
+            console.log(result);
+            be.err.equal(result, {a: 4, b: 5});
+        });
+
         it('should be return false', () => {
             let result = defaulty({a: 4, b: 5}, {a: 1, b: 2, c: 3});
             console.log(result);
@@ -20,6 +27,11 @@ describe('defaulty', function () {
         it('should be return true', () => {
             let result = defaulty({a: 4, b: 5, d: {a: 1}}, {a: 1, b: 2, c: 3, d: {a: 5, b: 2}});
             console.log(result);
+            be.err.equal(result, {a: 4, b: 5, c: 3, d: {a: 1, b: 2}});
+        });
+
+        it('exclude properties, should be return true', () => {
+            let result = defaulty({a: 4, b: 5, d: {a: 1}}, {a: 1, b: 2, c: 3, d: {a: 5, b: 2}, z: 2}, ['z']);
             be.err.equal(result, {a: 4, b: 5, c: 3, d: {a: 1, b: 2}});
         });
     });
