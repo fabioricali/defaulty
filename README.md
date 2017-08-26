@@ -20,22 +20,33 @@ npm install defaulty --save
 ```javascript
 const defaulty = require('defaulty');
 
-let defaultObj = {a: 1, b: 2, c: 3, d: {a: 5, b: 2}};
+const defaultObj = {a: 1, b: 2, c: 3, d: {a: 5, b: 2}};
 let targetObj = {a: 4, b: 5, d: {a: 1}};
 
-let result = defaulty(targetObj, defaultObj);
+defaulty(targetObj, defaultObj);
 
-console.log(result); //=> {a: 4, b: 5, c: 3, d: {a: 1, b: 2}};
+console.log(targetObj); //=> {a: 4, b: 5, c: 3, d: {a: 1, b: 2}};
 ```
 
 ### Exclude default properties
 ```javascript
-let defaultObj = {a: 1, b: 2, c: 3, d: {a: 5, b: 2}, x: 1, y: 2};
+const defaultObj = {a: 1, b: 2, c: 3, d: {a: 5, b: 2}, x: 1, y: 2};
 let targetObj = {a: 4, b: 5, d: {a: 1}};
 
-let result = defaulty(targetObj, defaultObj, ['x', 'y']);
+defaulty(targetObj, defaultObj, ['x', 'y']);
 
-console.log(result); //=> {a: 4, b: 5, c: 3, d: {a: 1, b: 2}};
+console.log(targetObj); //=> {a: 4, b: 5, c: 3, d: {a: 1, b: 2}};
+```
+
+### Copy target object
+```javascript
+const defaultObj = {a: 1, b: 2, c: 3, d: {a: 5, b: 2}};
+const targetObj = {a: 4, b: 5, d: {a: 1}};
+
+const newTargetObject = defaulty.copy(targetObj, defaultObj);
+
+console.log(newTargetObject); //=> {a: 4, b: 5, c: 3, d: {a: 1, b: 2}};
+console.log(targetObj); //=> {a: 4, b: 5, d: {a: 1}};
 ```
 
 ## Changelog

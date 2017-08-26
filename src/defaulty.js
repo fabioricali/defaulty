@@ -20,4 +20,17 @@ const defaulty = (targetObj, defaultObj, exclude = []) => {
     return targetObj;
 };
 
+/**
+ * Creates new target object and copies deep missing properties to the target object
+ * @param args[0] {Object} target object
+ * @param args[1] {Object} default object
+ * @param args[2] {Array} exclude properties from copy
+ * @returns {*}
+ */
+const copy = (...args) => {
+    args[0] = Object.assign({}, args[0]);
+    return defaulty.apply(this, args);
+};
+
 module.exports = defaulty;
+module.exports.copy = copy;
