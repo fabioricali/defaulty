@@ -8,6 +8,7 @@
 
 const defaulty = (targetObj, defaultObj, exclude = []) => {
     for (let i in defaultObj) {
+        /* istanbul ignore else  */
         if (defaultObj.hasOwnProperty(i) && exclude.indexOf(i) === -1)
             if (!targetObj.hasOwnProperty(i)) {
                 targetObj[i] = defaultObj[i];
