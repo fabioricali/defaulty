@@ -1,4 +1,4 @@
-const defaulty = require('../dist/src/defaulty');
+const defaulty = require('../index');
 const be = require('bejs');
 
 describe('defaulty', function () {
