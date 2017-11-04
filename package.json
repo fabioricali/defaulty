@@ -2,7 +2,7 @@
   "name": "defaulty",
   "version": "1.2.1",
   "description": "Copies missing properties to the target object.",
-  "main": "index.js",
+  "main": "dist/src/defaulty.js",
   "scripts": {
     "version:major": "npm version major",
     "version:minor": "npm version minor",
@@ -28,6 +28,8 @@
   "author": "Fabio Ricali",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "bejs": "^1.11.0",
     "coveralls": "^2.13.1",
     "istanbul": "^0.4.5",
