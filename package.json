@@ -1,6 +1,6 @@
 {
   "name": "defaulty",
-  "version": "1.2.2",
+  "version": "2.0.0",
   "description": "Copies missing properties to the target object.",
   "main": "dist/src/defaulty.js",
   "scripts": {
