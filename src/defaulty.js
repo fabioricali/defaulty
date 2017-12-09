@@ -9,14 +9,13 @@
 const defaulty = (targetObj, defaultObj, exclude = []) => {
     for (let i in defaultObj) {
         /* istanbul ignore else  */
-        if (defaultObj.hasOwnProperty(i) && exclude.indexOf(i) === -1)
-            if (!targetObj.hasOwnProperty(i)) {
+        if (defaultObj.hasOwnProperty(i) && exclude.indexOf(i) === -1) {
+            if (!targetObj.hasOwnProperty(i) || typeof targetObj[i] === 'undefined') {
                 targetObj[i] = defaultObj[i];
-            } else {
-                if (typeof targetObj[i] === 'object') {
-                    defaulty(targetObj[i], defaultObj[i]);
-                }
+            } else if (typeof targetObj[i] === 'object') {
+                defaulty(targetObj[i], defaultObj[i]);
             }
+        }
     }
     return targetObj;
 };

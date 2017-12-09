@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.0] - 2017-12-09
+- Now `undefined` value will be overwrite by the default
+
 ## [1.2.2] - 2017-11-04
 - Added support to ES5
 

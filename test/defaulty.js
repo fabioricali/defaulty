@@ -58,4 +58,15 @@ describe('defaulty', function () {
         });
     });
 
+    describe('defaults, undefined value', function () {
+        it('should be return true', () => {
+            let targetObj = {a: undefined, b: 5, c: 8};
+            const defaultObj = {a: 1, b: 2};
+            let result = defaulty(targetObj, defaultObj);
+            console.log(targetObj);
+            console.log(result);
+            be.err.equal(result, targetObj);
+            be.err.equal(result, {a: 1, b: 5, c: 8});
+        });
+    });
 });

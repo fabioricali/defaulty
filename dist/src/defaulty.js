@@ -15,10 +15,10 @@ var defaulty = function defaulty(targetObj, defaultObj) {
 
     for (var i in defaultObj) {
         /* istanbul ignore else  */
-        if (defaultObj.hasOwnProperty(i) && exclude.indexOf(i) === -1) if (!targetObj.hasOwnProperty(i)) {
-            targetObj[i] = defaultObj[i];
-        } else {
-            if (_typeof(targetObj[i]) === 'object') {
+        if (defaultObj.hasOwnProperty(i) && exclude.indexOf(i) === -1) {
+            if (!targetObj.hasOwnProperty(i) || typeof targetObj[i] === 'undefined') {
+                targetObj[i] = defaultObj[i];
+            } else if (_typeof(targetObj[i]) === 'object') {
                 defaulty(targetObj[i], defaultObj[i]);
             }
         }
