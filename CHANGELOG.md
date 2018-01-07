@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.1] - 2018-01-07
+- Now `copy` method copies deep objects
+
 ## [2.0.0] - 2017-12-09
 - Now `undefined` value will be overwrite by the default
 
