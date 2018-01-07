@@ -43,6 +43,19 @@ describe('defaulty', function () {
             console.log(result);
             be.err.equal(result, {a: 4, b: 5});
         });
+
+        it('should be return true, deep', () => {
+            let targetObj = {a: 4, b: 5, d: {r: 5}};
+            const defaultObj = {a: 1, b: 2, c: 3, d: {r: 8}};
+            let result = defaulty.copy(targetObj, defaultObj);
+
+            targetObj.d.r = true;
+
+            console.log(targetObj);
+            console.log(result);
+            be.err.not.equal(result, targetObj);
+            be.err.equal(result, {a: 4, b: 5, d: { r: 5 }, c: 3});
+        });
     });
 
     describe('defaults, deep', function () {

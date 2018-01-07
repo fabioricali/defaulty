@@ -2,12 +2,12 @@
   "name": "defaulty",
   "version": "2.0.0",
   "description": "Copies missing properties to the target object.",
-  "main": "dist/src/defaulty.js",
+  "main": "dist/defaulty.js",
   "scripts": {
-    "version:major": "npm version major",
-    "version:minor": "npm version minor",
-    "version:patch": "npm version patch",
-    "postversion": "npm publish && git push && git push --tags",
+    "version:major": "webpack --env.major && version-to-tag.sh && npm publish",
+    "version:minor": "webpack --env.minor && version-to-tag.sh && npm publish",
+    "version:patch": "webpack --env.patch && version-to-tag.sh && npm publish",
+    "build": "webpack --progress",
     "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "mocha.test": "mocha"
   },
@@ -29,15 +29,24 @@
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
     "bejs": "^1.11.0",
     "coveralls": "^2.13.1",
     "istanbul": "^0.4.5",
     "mocha": "^3.5.0",
-    "mocha-lcov-reporter": "^1.3.0"
+    "mocha-lcov-reporter": "^1.3.0",
+    "unminified-webpack-plugin": "^1.4.2",
+    "webpack": "^3.10.0",
+    "webpack-auto-inject-version": "^1.0.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/fabioricali/defaulty"
+  },
+  "dependencies": {
+    "deep-copy": "^1.4.1"
   }
 }

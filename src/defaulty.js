@@ -1,3 +1,5 @@
+const deepCopy = require('deep-copy');
+
 /**
  * Copies deep missing properties to the target object
  * @param targetObj {Object} target object
@@ -28,7 +30,8 @@ const defaulty = (targetObj, defaultObj, exclude = []) => {
  * @returns {*}
  */
 const copy = (...args) => {
-    args[0] = Object.assign({}, args[0]);
+    //args[0] = Object.assign({}, args[0]);
+    args[0] = deepCopy(args[0]);
     return defaulty.apply(this, args);
 };
 
