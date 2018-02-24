@@ -54,7 +54,7 @@ describe('defaulty', function () {
             console.log(targetObj);
             console.log(result);
             be.err.not.equal(result, targetObj);
-            be.err.equal(result, {a: 4, b: 5, d: { r: 5 }, c: 3});
+            be.err.equal(result, {a: 4, b: 5, d: {r: 5}, c: 3});
         });
     });
 
@@ -80,6 +80,37 @@ describe('defaulty', function () {
             console.log(result);
             be.err.equal(result, targetObj);
             be.err.equal(result, {a: 1, b: 5, c: 8});
+        });
+    });
+
+    describe('defaults, object into array', function () {
+        it('should be return true', () => {
+            let targetObj = {
+                Items: {
+                    Item: [
+                        {
+                            Artist: ['']
+                        }
+                    ]
+                }
+            };
+            let defaultObj = {
+                Items: {
+                    Item: [
+                        {
+                            Artist: ['']
+                        },
+                        {
+                            Title: ['']
+                        }
+                    ]
+                }
+            };
+
+            let result = defaulty(targetObj, defaultObj);
+            console.log(targetObj);
+            console.log(result.Items.Item);
+            be.err.equal(result, defaultObj);
         });
     });
 });
